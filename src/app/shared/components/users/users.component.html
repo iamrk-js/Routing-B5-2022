@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-sm-4">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let user of userData"
+            [routerLink]="['/users', user.userId]"
+            [class.active]="user.userId === activeUserId"
+            (click) ="activeUserId = user.userId">
+                {{user.userName}} {{user.userId}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-8">
+       <!-- <app-user></app-user> -->
+       <router-outlet></router-outlet>
+    </div>
+</div>
+<hr>
+<!-- 
+<a routerLink="/products" class="btn btn-link">
+    Go to Products
+</a>
+ -->
+<!-- <button class="btn btn-primary" (click)="onGotoProducts()">Go to Products</button> -->
+<!-- Absolute >> when we use / in path  >> BaseUrl
+    baseurl/pathvalue
+    localhost:4200/products
+    and
+     Relative >> when we don't use / in path
+    currentUrl/pathName
+    http://localhost:4200/users/products
+-->

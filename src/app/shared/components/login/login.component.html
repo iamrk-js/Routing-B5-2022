@@ -1,0 +1,61 @@
+<div class="main">
+    <div class="card form">
+        <div class="card-body">
+            <div class="login" *ngIf="isHavingAccount">
+                <h3>Login</h3>
+                <div class="input-group">
+                    <!-- <label for="email">Email</label> -->
+                    <input type="text" name="" placeholder="Email" id="email" class="form-control">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <!-- <label for="password">Password</label> -->
+                    <input [type]="isPasswordVisible ? 'text' : 'password'" placeholder="Password" name="" id="password"
+                        class="form-control">
+                    <div class="input-group-append" (click)="isPasswordVisible = !isPasswordVisible">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa-solid"
+                                [ngClass]="{'fa-eye-slash' : isPasswordVisible, 'fa-eye' : !isPasswordVisible }"></i>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary" (click)="logIn()">
+                        Log In
+                    </button>
+                </div>
+            </div>
+            <div class="signUp" *ngIf="!isHavingAccount">
+                <h3>Sign Up</h3>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="" id="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" name="" id="confirmPassword" class="form-control">
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+            <p *ngIf="isHavingAccount">
+                <a href="javascript:;" (click)="isHavingAccount = !isHavingAccount">Don't Have account</a>
+            </p>
+            <p *ngIf="!isHavingAccount">
+                <a href="javascript:;" (click)="isHavingAccount = !isHavingAccount">Already Have account</a>
+            </p>
+        </div>
+    </div>
+</div>

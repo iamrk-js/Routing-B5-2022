@@ -1,0 +1,11 @@
+
+<div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name="" [value]="userInfo?.userName" id="username" class="form-control">
+</div>
+<div>
+    <button class="btn btn-primary" (click)="onUserUpdate()">
+        Update User Details
+    </button>
+</div>
+<!-- {{userInfo | json}} -->
